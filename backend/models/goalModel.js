@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 const goalSchema = mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+      required: true,
+    },
     text: {
       type: String,
       required: [true, "Please add a text value"],
@@ -10,4 +15,4 @@ const goalSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-export const goal = mongoose.model("goals", goalSchema);
+export const Goal = mongoose.model("goals", goalSchema);

@@ -5,8 +5,10 @@ import {
   updateGoal,
   deleteGoal,
 } from "../controllers/goalController.js";
+import protect from "../middleware/authMiddleware.js";
 
 const goalRoutes = Router();
+goalRoutes.use(protect);
 
 goalRoutes.get("/", getGoal);
 goalRoutes.post("/", setGoal);

@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import goalRoutes from "./routes/goalRoutes.js";
 import { errorHandler } from "./middleware/errorMidleware.js";
 import { db } from "./config/db.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
@@ -15,5 +16,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api/goals", goalRoutes);
+app.use("/api/users", userRoutes);
 app.use(errorHandler);
 app.listen(PORT, () => console.log(`server started on port ${PORT}`));
